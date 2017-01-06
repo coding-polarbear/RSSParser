@@ -65,8 +65,9 @@ public class ItemDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
             if (mItem != null) {
                 webView = (WebView) rootView.findViewById(R.id.item_detail);
+                webView.getSettings().setDefaultTextEncodingName("utf-8");
                 webView.getSettings().setJavaScriptEnabled(true);
-                webView.loadData(mItem.details, "text/html","UTF-8");
+                webView.loadData(mItem.details, "text/html; charset=UTF-8","null");
         }
 
         return rootView;
