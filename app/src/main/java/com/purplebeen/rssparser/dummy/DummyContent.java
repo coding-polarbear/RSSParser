@@ -1,5 +1,9 @@
 package com.purplebeen.rssparser.dummy;
 
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+
 import com.purplebeen.rssparser.ItemListActivity;
 import com.purplebeen.rssparser.MainActivity;
 import com.purplebeen.rssparser.Parser;
@@ -33,10 +37,11 @@ public class DummyContent {
         try {
             Parser parser = new Parser();
             parser.setURL(MainActivity.url);
-            parser.startParsing();
-            titles = parser.getTitles();
-            descriptions = parser.getDescriptions();
+            ArrayList[] array = parser.execute(null,null,null).get();
+            titles = array[0];
+            descriptions = array[1];
             for (int i = 0; i < titles.size(); i++) {
+                Log.d("Test", "title = " + titles.get(i));
                 addItem(new DummyItem(Integer.toString(i + 1), titles.get(i), descriptions.get(i)));
             }
         } catch(Exception e) {
