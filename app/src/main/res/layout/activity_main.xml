@@ -8,47 +8,49 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:fitsSystemWindows="true"
     android:background="@color/colorPrimary"
     tools:context="com.purplebeen.rssparser.MainActivity">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
     <android.support.design.widget.TextInputLayout
+        android:theme="@style/TextLabel1"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
         android:textColorHint="#ffffff"
         android:id="@+id/textInputLayout"
-        android:layout_marginBottom="30dp"
-        android:hint="블로그 주소를 입력하세요." >
+        android:hint="블로그 주소를 입력하세요."
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
             <android.support.v7.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:text=""
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
             android:textAlignment="center"
             android:ems="10"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:id="@+id/editText" />
     </android.support.design.widget.TextInputLayout>
+
     <Button
         android:text="확인"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:background="#3366ff"
-        android:layout_centerHorizontal="true"
         android:id="@+id/button"
-        android:layout_below="@+id/textInputLayout" />
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/textInputLayout"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp" />
 
 
 </RelativeLayout>

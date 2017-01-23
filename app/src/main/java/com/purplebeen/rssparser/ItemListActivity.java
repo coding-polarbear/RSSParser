@@ -43,17 +43,17 @@ public class ItemListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "결과값을 다시 불러왔습니다.", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                    DummyContent.loadData();
-                }
-            });
-
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "결과값을 다시 불러왔습니다.", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                DummyContent.ITEMS.clear();
+                DummyContent.ITEM_MAP.clear();
+                DummyContent.loadData();
+            }
+        });
             View recyclerView = findViewById(R.id.item_list);
             assert recyclerView != null;
             setupRecyclerView((RecyclerView) recyclerView);
@@ -64,6 +64,7 @@ public class ItemListActivity extends AppCompatActivity {
                 // If this view is present, then the
             // activity should be in two-pane mode.
             mTwoPane = true;
+
         }
 
     }
@@ -95,14 +96,14 @@ public class ItemListActivity extends AppCompatActivity {
             holder.mContentView.setText(mValues.get(position).content);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        ItemDetailFragment fragment = new ItemDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
+                            @Override
+                            public void onClick(View v) {
+                                if (mTwoPane) {
+                                    Bundle arguments = new Bundle();
+                                    arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                                    ItemDetailFragment fragment = new ItemDetailFragment();
+                                    fragment.setArguments(arguments);
+                                    getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.item_detail_container, fragment)
                                 .commit();
                     } else {

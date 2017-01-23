@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RSSParser.iml" filepath="$PROJECT_DIR$/RSSParser.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdom-2.0.6/jdom-2.0.6.iml" filepath="$PROJECT_DIR$/jdom-2.0.6/jdom-2.0.6.iml" />
     </modules>
   </component>
 </project>

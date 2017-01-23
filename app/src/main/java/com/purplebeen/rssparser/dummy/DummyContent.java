@@ -27,27 +27,27 @@ public class DummyContent {
      */
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
-    public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+            /**
+             * A map of sample (dummy) items, by ID.
+             */
+            public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
-    public static void loadData() {
-        try {
-            Parser parser = new Parser();
-            parser.setURL(MainActivity.url);
-            ArrayList[] array = parser.execute(null,null,null).get();
+            private static final int COUNT = 25;
+        public static void loadData() {
+            try {
+                Parser parser = new Parser();
+                parser.setURL(MainActivity.url);
+                ArrayList[] array = parser.execute(null,null,null).get();
             titles = array[0];
             descriptions = array[1];
             for (int i = 0; i < titles.size(); i++) {
                 Log.d("Test", "title = " + titles.get(i));
                 addItem(new DummyItem(Integer.toString(i + 1), titles.get(i), descriptions.get(i)));
             }
-        } catch(Exception e) {
-            e.printStackTrace();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
     static {
         // Add some sample items.
         loadData();
@@ -58,31 +58,27 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
-    }
-
     private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
         for (int i = 0; i < position; i++) {
             builder.append("\nMore details information here.");
         }
-        return builder.toString();
-    }
+            return builder.toString();
+        }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class DummyItem {
-        public final String id;
-        public final String content;
-        public final String details;
+        /**
+         * A dummy item representing a piece of content.
+         */
+        public static class DummyItem {
+            public final String id;
+            public final String content;
+            public final String details;
 
-        public DummyItem(String id, String content, String details) {
-            this.id = id;
-            this.content = content;
-            this.details = details;
+            public DummyItem(String id, String content, String details) {
+                this.id = id;
+                this.content = content;
+                this.details = details;
         }
 
         @Override
